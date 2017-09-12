@@ -1,3 +1,6 @@
+#version: "3"
+
+#services:
 gwy:
   build: ./gwy
   ports:
@@ -7,10 +10,18 @@ gwy:
     - auth
 
 auth:
-  build: ./auth
+  build: ./auth2
   expose:
     - "8080"
+# ms1:
+#   build: ./ms1
+#   expose:
+#     - "8080"
+
 ms1:
-  build: ./ms1
+  build: ./ms2
+  # image: rocker/shiny
+  ports:
+    - "9999:3838"
   expose:
-    - "8080"
+    - "3838"
